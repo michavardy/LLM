@@ -8,6 +8,12 @@
 
 ## Build
 ```bash
+# build using buildx
+docker buildx install
+export DOCKER_BUILDKIT=1
+docker buildx build -t my_container_name .
+
+#build using build
 docker build -t my_container_name .
 docker run --rm --privileged -e SEED_PROMPT="your_seed_prompt" -e INPUT_TEXT="your_input_text" my_container_name
 ```
