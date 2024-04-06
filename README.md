@@ -5,16 +5,20 @@
 - this docker will run using accelerated GPU Intel Corporation HD Graphics 630
 - this will be done using the --privileged flag
 
-
+## Download Model
+```bash
+mkdir model
+git clone https://huggingface.co/HuggingFaceH4/zephyr-7b-beta/ model/zephyr-7b-beta
+```
 ## Build
 ```bash
 # build using buildx
 docker buildx install
 export DOCKER_BUILDKIT=1
-docker buildx build -t my_container_name .
+docker buildx build -t llm .
 
 #build using build
-docker build -t my_container_name .
+#docker build -t llm .
 docker run --rm --privileged -e SEED_PROMPT="your_seed_prompt" -e INPUT_TEXT="your_input_text" my_container_name
 ```
 
